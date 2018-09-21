@@ -29,11 +29,10 @@ services:
             dockerfile: dockerfile
         ports:
             - 3000:3000
+            - 9229:9229
         volumes:
             - ../server/src:/app/src
-
         command: ["npm", "run", "dev"]
-
         environment:
             EXPRESS_HOST: 3000
             EXPRESS_HEADERS_ALLOW: "X-Requested-With, Content-Type, Accept, Authorization"

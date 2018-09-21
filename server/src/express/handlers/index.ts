@@ -1,1 +1,5 @@
-export * from './index.all/index.all.handler'
+import * as Root from './root'
+
+export const HANDLERS = {
+    Root
+}

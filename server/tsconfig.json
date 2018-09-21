@@ -4,7 +4,8 @@
       "module": "commonjs",
       "lib": [ "es7" ],
       "target": "es6",
-      "sourceMap": true
+      "sourceMap": true,
+	  "alwaysStrict": true
     },
     "include": [
       "./src/**/*"
