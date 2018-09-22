@@ -10,6 +10,7 @@ export class Expresss {
     private static server: http.Server
 
     static defineHandlers() {
+        this.app.all('/ping', (req, res) => res.send({ message: 'pong' }))
         this.app.post('/api*', HANDLERS.Root.post)
         this.app.all('/api*', HANDLERS.Root.all)
     }
@@ -17,7 +18,11 @@ export class Expresss {
     static init() {
         this.app = express()
          
-        this.app.use(morgan('common'))
+        this.app.use(morgan('common', {
+            skip (req, res) {
+                return req.path.split('/')[1].toLocaleLowerCase() !== 'api'
+            }
+        }))
         
         this.app.use(bodyParser.json({}))
         this.app.use(bodyParser.urlencoded({ extended: true }))

@@ -12,5 +12,5 @@ services:
         volumes:
             - ../:/development
         ports:
-            - 3000:4200
+            - 3000:3000
             - 9229:9229

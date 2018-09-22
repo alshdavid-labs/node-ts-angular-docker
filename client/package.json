@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --disable-host-check --poll=1000 --proxy-config proxy.conf.json",
-    "build": "ng build --prod --aot",
+    "build": "ng build --prod --aot --output-path=../server/public",
+    "build:watch": "ng build --watch --output-path=../server/public",
     "test": "ng test --browsers ChromeHeadless --watch=false",
     "test:watch": "ng test --browsers ChromeHeadless",
     "lint": "ng lint",
