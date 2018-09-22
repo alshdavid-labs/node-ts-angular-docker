@@ -1,3 +1,4 @@
+import * as path from 'path'
 import * as http from "http";
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
@@ -9,8 +10,8 @@ export class Expresss {
     private static server: http.Server
 
     static defineHandlers() {
-        this.app.post('*', HANDLERS.Root.post)
-        this.app.all('*', HANDLERS.Root.all)
+        this.app.post('/api*', HANDLERS.Root.post)
+        this.app.all('/api*', HANDLERS.Root.all)
     }
 
     static init() {
@@ -30,7 +31,9 @@ export class Expresss {
         })
         
         this.defineHandlers()
-
+        this.app.use('/', express.static(path.join(__dirname, '../public')))
+        this.app.use("*", (req, res) => res.sendFile(path.join(__dirname, '../public/index.html')));
+        
         return new Promise(res => this.server = this.app.listen(process.env.EXPRESS_HOST || 3000, _ =>  res()))
     }
 

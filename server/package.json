@@ -7,7 +7,7 @@
     "start": "npm run build && node dist/index.js",
     "dev": "npx concurrently \"npm run watch:build\" \"npm run watch:run\"",
     "watch:build": "npx tsc --watch --preserveWatchOutput",
-    "watch:run": "npx nodemon --inspect=0.0.0.0:9229 dist/index.js",
+    "watch:run": "npx nodemon --inspect=0.0.0.0:9229 dist",
     "build": "npx tsc"
   },
   "keywords": [],
@@ -27,5 +27,9 @@
     "rxjs": "^6.3.2",
     "socket.io": "^2.1.1",
     "typescript": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4",
+    "tsc": "^1.20150623.0"
   }
 }

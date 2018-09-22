@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    service:
+        tty: true
+        container_name: service.development
+        build:
+            context: ../
+            dockerfile: .build/dev.dockerfile
+        environment:
+            ENVIRONMENT: development
+        volumes:
+            - ../:/development
+        ports:
+            - 3000:4200
+            - 9229:9229
